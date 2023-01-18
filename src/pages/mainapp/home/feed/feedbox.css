@@ -1,0 +1,28 @@
+.innerfeedbox{
+    width: 90%;
+    height: 100%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    /* border: 2px solid purple; */
+}
+.feedbox{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    background-color:  #001220;
+}
+.modal {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    /* z-index: 1008880; */
+    /* margin-top: 200px; */
+    padding-top: 100px;
+}
+.modal-backdrop {
+    /* background-color: transparent; */
+    display: none;
+};
+.modal-dialog{
+    z-index: 1000;
+    margin-top: 500px;
+}

@@ -1,0 +1,56 @@
+.mainbody{
+    min-height: 100vh;
+    /* position: fixed; */
+}
+.homescreen{
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: scroll;
+    position: fixed;
+    /* scrollbar-color: red; */
+    /* position: fixed; */
+
+}
+.homescreen::-webkit-scrollbar {
+    display: none;
+  }
+
+/* .nv{
+    position:fixed;
+} */
+.oth{
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    /* margin-top: 100px; */
+
+}
+.feedboxarea{
+    /* border: 3px solid green; */
+    width: 65vw;
+    height: 100vh;
+      width: 100%;
+      /* margin-top: calc(100% - 65px); */
+      margin-top: 70px;
+      border-radius: 20px;
+      border-top-left-radius: 0;
+      overflow: scroll;
+      scroll-behavior: smooth;
+      /* scrollbar-color: red; */
+}
+.feedboxarea::-webkit-scrollbar {
+    display: none;
+  }
+
+.sidebararea{
+    margin-top: 70px;
+    /* border: 3px solid red; */
+    width: 25vw;
+}
+.sidebararea::-webkit-scrollbar {
+    display: none;
+  }

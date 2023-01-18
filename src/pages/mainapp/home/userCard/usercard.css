@@ -1,0 +1,33 @@
+.usercardmain{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    border: 2px solid black;
+    align-items: center;
+    margin: 10px 0px;
+    border-radius: 10px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.5s;
+    box-shadow: -1px 3px 18px 11px rgba(228,226,226,0.72);
+-webkit-box-shadow: -1px 3px 18px 11px rgba(228,226,226,0.72);
+-moz-box-shadow: -1px 3px 18px 11px rgba(228,226,226,0.72);
+
+}
+
+.usercardmain:hover{
+    padding: 0px 20px;
+}
+.usercardmain img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid black;
+    margin-left: 10px;
+}
+.usercardmain h3{
+    overflow: hidden;
+    padding-left: 10px;
+    /* border: 2px solid red; */
+    margin: 0;
+}

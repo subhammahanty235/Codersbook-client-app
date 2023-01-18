@@ -1,0 +1,20 @@
+.nopostsbox{
+    /* border: 2px solid white; */
+    height:35%;
+    /* background-color: #393a3b; */
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+.nopostsbox img{
+    opacity: 0.7;
+    filter: drop-shadow(16px 12px 27px #FAF9F9);
+}
+.nopostsbox h2{
+    overflow: hidden;
+    color: #fff;
+    /* opacity: 0.6; */
+    /* margin: 0; */
+}
