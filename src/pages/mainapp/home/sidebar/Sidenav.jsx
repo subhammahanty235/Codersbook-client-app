@@ -44,7 +44,7 @@ function Sidenav(props) {
 
           <button>Saved</button>
           {/* </div> */}
-          <button onClick={logout}>Log Out</button>
+          <button  onClick={logout}>Log Out</button>
         </div>
 
       </div>
