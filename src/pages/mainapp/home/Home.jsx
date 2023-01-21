@@ -14,6 +14,11 @@ function Home() {
   const content_page = useContext(togglepagecontext)
   const { pmppage, changepage, setprofileid } = content_page
   const navigate = useNavigate()
+
+  const [show , setshow] = useState(false);
+  const set = ()=>{
+    setshow(!show);
+  }
   useEffect(() => {
     if (!localStorage.getItem('sclmdia_73sub67_token')) {
       navigate('/login')
@@ -78,9 +83,9 @@ function Home() {
       <div className="mainbody">
 
         <div className='homescreen'>
-          <Navbar />
+          <Navbar showhidesidenav={set} /> 
 
-          <div className="oth">
+          <div className="oth" >
 
             <div className="feedboxarea">
 
@@ -89,8 +94,8 @@ function Home() {
               }
               {/* <Feedbox userdata={userdata} pmp={pmppage}/> */}
             </div>
-            <div className="sidebararea">
-              <Sidenav userdata={userdata} />
+            <div className={`sidebararea ${show===false?"sidebarhide": "sidebarshow"}`}>
+              <Sidenav setsidenav={set} userdata={userdata} />
               {/* <Sidenav userdata={userdata} pmppage={pnp_change} pmp={pmppage} setprofileid={setprofileid}/> */}
             </div>
           </div>

@@ -59,3 +59,16 @@
 
 }
 
+.dp{
+    border-radius: 50%;
+    display: none;
+    /* margin-left: 200px; */
+}
+@media screen and (max-width:720px) {
+    .dp{
+        display: block;
+
+    }
+    
+}
+

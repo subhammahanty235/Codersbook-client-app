@@ -109,3 +109,34 @@
 /* .modal-header , .modal-footer{
     background-color: #7fe3a2;
 } */
+
+@media screen and (max-width:720px) {
+    .profile{
+        width: 70%;
+        margin: 0px auto;
+        height: 150px;
+        
+        display: flex; 
+        flex-direction: column;
+        /* align-items: center; */
+        justify-content:space-between;
+        background-color: #fff;
+        margin-top: 20px;
+    }
+
+    .nameanddp img{
+        width: 70px;
+        height: 70px;
+    }
+    .nameanddp p{
+        font-size:25px ;
+    }
+    .otherbuttons{
+        display: flex;
+        flex-direction:column ;
+        align-items: center;
+    }
+    .otherbuttons button{
+        width: 70%;
+    }
+}

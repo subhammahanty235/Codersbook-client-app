@@ -5,12 +5,12 @@ import './profile.css'
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
 // import Tempimage from '../../../../images/tempimage.png'
 function Profile(props) {
-    const { id } = props;
+    
     const context_page = useContext(togglepagecontext);
     const {profileid , changepage} = context_page
     const [myPosts, setmyPosts] = useState();
     const [myinfo, setmyInfo] = useState();
-
+    
     const mydetails = JSON.parse(localStorage.getItem('sclmdia_73sub67_details'));
 
     useEffect(() => {

@@ -2,7 +2,8 @@ import React from 'react'
 // import { TiThMenuOutline } from 'react-icons/ti'
 import './navbar.css'
 import Logo from '../../../images/logo.png'
-function Navbar() {
+function Navbar(props) {
+    const {showhidesidenav} = props
     return (
         // <div>
             // <nav>
@@ -18,6 +19,7 @@ function Navbar() {
             
             <div className="logo"><img src={Logo} alt="logo" /></div>
             <input type="text" name="" id="" placeholder='hello'/>
+            <img onClick={showhidesidenav}  src="https://avatars.githubusercontent.com/u/99578301?v=4" alt="" className="dp" />
         </div>
         
     )

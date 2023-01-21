@@ -54,3 +54,31 @@
 .sidebararea::-webkit-scrollbar {
     display: none;
   }
+
+  @media screen and (max-width:720px) {
+    .sidebararea{
+        /* display: none; */
+        position:absolute;
+        width: 100%;
+        background-color:#001220;
+        border-radius: 20px;
+        margin: 13.7% 0px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        height: calc(100% - 20%);
+        transition: all 0.5s;
+    }
+
+    .sidebarshow{
+        height: calc(100% - 20%);;
+        /* width: 100%; */
+    }
+    .sidebarhide{
+        /* display: none; */
+        height: 0px;
+        /* width: 0px; */
+    }
+    .feedboxarea{
+        width: 100%;
+    }
+  }
