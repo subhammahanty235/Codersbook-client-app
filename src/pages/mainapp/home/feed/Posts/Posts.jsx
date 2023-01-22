@@ -12,7 +12,8 @@ function Posts(props) {
             const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}post/allposts`, {
                 method: "GET",
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    'authtoken': localStorage.getItem('sclmdia_73sub67_token')
                 }
             }
             )

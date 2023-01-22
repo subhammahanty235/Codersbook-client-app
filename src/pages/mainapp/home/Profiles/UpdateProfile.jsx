@@ -126,11 +126,7 @@ function UpdateProfile() {
         };
         reader.readAsDataURL(file);
     };
-    const onChange2 = () => {
-        console.log(Object.fromEntries(newdata.entries()))
-        console.log(myinfo)
-        // console.log(newdata.name)
-    }
+   
     const onChange = (e) => {
         setmyInfo({ ...myinfo, [e.target.name]: e.target.value })
         if(e.target.name === 'bio'){
@@ -146,7 +142,7 @@ function UpdateProfile() {
                 <div className="mainscreen">
                     <div className="navbar110">
                         {/* <button>back</button> */}
-                        <FontAwesomeIcon icon={faArrowLeft} />
+                        <FontAwesomeIcon icon={faArrowLeft} onClick={()=>{changepage(2)}}/>
                         <button className='updatebutton' onClick={updateprofile}>Update</button>
                     </div>
                     <div className="profileform">

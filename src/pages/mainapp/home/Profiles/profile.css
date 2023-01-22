@@ -120,6 +120,25 @@
     /* font-size: 18px; */
     transition: all 0.5s;
 }
+.follow-editprofile-onp{
+    display: none;
+}
+.follow-editprofile-onp button {
+    padding: 7px 10px;
+    margin: 0px 5px;
+    border: none;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius: 10px;
+    background-color: transparent;
+    /* background-color: rgb(99, 229, 185); */
+    border: 2px solid rgb(248, 245, 245);
+    color: #fff;
+    font-weight: 600;
+    /* margin-left: 30px; */
+    /* font-size: 18px; */
+    transition: all 0.5s;
+}
 
 .follow-editprofile button:active {
     padding: 7px 50px;
@@ -165,6 +184,29 @@
 
 .posts::-webkit-scrollbar {
     display: none;
+}
+
+@media screen and (max-width:700px) {
+    .dp987{
+        width: 22%;
+        height: 45%;
+        border: 1px solid #fff;
+    }
+    .follow-editprofile button{
+        padding: 9px 10px;
+    }
+    .follow-editprofile{
+        display:none;
+    }
+    .follow-editprofile-onp{
+        display: block;
+    }
+    .follow-unfollow-buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
 }
 
 /* update profile page */
@@ -308,4 +350,18 @@
     -moz-box-shadow: 1px 0px 12px 2px #7fe3a2;
 
 }
+@media screen and (max-width:600px) {
+    .mainscreen{
+        border: none;
+    }
+    .navbar110{
+        margin-top: 30px;
+    }
+    .updatebutton{
+        width: 17%;
+        /* margin-top: ; */
+    }
+}
+
+
 

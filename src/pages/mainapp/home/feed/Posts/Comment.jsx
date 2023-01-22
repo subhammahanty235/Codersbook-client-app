@@ -6,7 +6,7 @@ function Comment(props) {
   const { cmt } = props;
   const [userData , setUserData] = useState("")
   const getuserdata = async()=>{
-     let resdata = await fetch(`http://localhost:5000/api/auth/getdata/${cmt.commentedBy}`,{
+     let resdata = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${cmt.commentedBy}`,{
           method:"GET",
 
      })

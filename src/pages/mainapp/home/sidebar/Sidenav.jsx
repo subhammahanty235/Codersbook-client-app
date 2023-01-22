@@ -20,8 +20,10 @@ function Sidenav(props) {
   }
 
   const logout = ()=>{
+
     localStorage.removeItem('sclmdia_73sub67_details')
     localStorage.removeItem('sclmdia_73sub67_token')
+
     navigate('/login')
   }
 

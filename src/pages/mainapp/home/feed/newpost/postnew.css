@@ -85,3 +85,11 @@
     color: #fff;
     /* border: 3px solid red; */
 }
+
+@media screen and (max-width:720px) {
+    .newpostarea{
+        margin-top: 20px;
+    }
+   
+
+}
