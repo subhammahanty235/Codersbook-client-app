@@ -1,6 +1,10 @@
-import React, { useEffect ,useState } from 'react'
+import React, { useEffect ,useState,useContext } from 'react'
 import './usercard.css'
+import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
 function UserCard(props) {
+    const content_page = useContext(togglepagecontext)
+    const {changepage, setprofileid } = content_page
+
     const { id } = props
     const [myinfo, setmyInfo] = useState();
 
@@ -23,10 +27,14 @@ function UserCard(props) {
         fetch_data();
 
     }, [])
+    const ooc = (id) => {
+        setprofileid(id)
+        changepage(2)
 
+    }
     return (
         <div className='usercardmain'>
-            <img src={myinfo?.profilepic !== null ? myinfo?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" />
+            <img onClick={()=>{ooc(myinfo?._id)}} src={myinfo?.profilepic !== null ? myinfo?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" />
 
             {/* <img src={"https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" /> */}
 
