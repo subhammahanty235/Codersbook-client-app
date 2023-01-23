@@ -46,7 +46,9 @@ function Signup() {
             <div className="main">
 
                 <div className="innermain">
-
+                <div className="logores">
+                        <h1 className='text-center'>CodersBook</h1>
+                    </div>
                     <div className="image">
                         <img src={login_image} alt="login" />
                         {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" alt="image" /> */}
@@ -87,7 +89,7 @@ function Signup() {
                         <button className="btn-login" onClick={login_func}>
                             Sign Up
                         </button>
-                        <button className="btn-signup">
+                        <button className="btn-signup" onClick={()=>{navigate('/login')}}>
                             Already User? Log in
                         </button>
                     </div>
