@@ -9,9 +9,10 @@ function UpdateProfile() {
     const { changepage } = context_page
     const [myinfo, setmyInfo] = useState();
     const [imageSrc, setImageSrc] = useState('https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png');
-
+    const [staticdata , setstaticdata] = useState();
     const [newdata, setnewdata] = useState(new FormData());
-    const [usernamechecked, setusernamechecked] = useState();
+    const [usernamechecked, setusernamechecked] = useState(true);
+    
     const fileInput = useRef(null);
 
     // Add new data to state
@@ -32,6 +33,7 @@ function UpdateProfile() {
             const mydata = await mydata_raw.json();
 
             setmyInfo(mydata.user)
+            setstaticdata(mydata.user)
             setImageSrc(mydata.user.profilepic)
         }
         fetch_data();
@@ -99,17 +101,24 @@ function UpdateProfile() {
     const checkusername = async () => {
         // const userdata = username;
         const username = myinfo.username
-        let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/checkusername/${username}`, {
-            method: "GET",
-        })
-
-        data = await data.json();
-        if (data.flag === false) {
-            setusernamechecked(false)
+        // if(staticdata.user)
+        if(staticdata.username === username){
+            setusernamechecked(true);
         }
-        else {
-            setusernamechecked(true)
+        else{
+            let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/checkusername/${username}`, {
+                method: "GET",
+            })
+    
+            data = await data.json();
+            if (data.flag === false) {
+                setusernamechecked(false)
+            }
+            else {
+                setusernamechecked(true)
+            }
         }
+        
     }
     const handleClick = () => {
         fileInput.current.click();
@@ -133,6 +142,10 @@ function UpdateProfile() {
             e.target.value.replace(/\n/g, '\\n');
         }
         newdata.append(e.target.name, e.target.value);
+
+        if(e.target.name === 'username'){
+            setusernamechecked(false);
+        }
 
         setnewdata(newdata);
     }
