@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
 import './login.css'
 import login_image from '../../../images/zorin_login.png'
+import img1 from '../../../images/image1.png'
+import img2 from '../../../images/image2.png'
+import img3 from '../../../images/image3.gif'
+
 import { useNavigate } from 'react-router-dom'
 function Login() {
+    const imagearray = [img1 , img2 , img3 ,img1];
     const navigate = useNavigate()
     const [credential, setcredential] = useState({ email: "", password: "" });
     // const baseurl = "http://localhost:5000/api"
@@ -51,7 +56,7 @@ function Login() {
                         <h1 className='text-center'>CodersBook</h1>
                     </div>
                     <div className="image9987">
-                        <img src={login_image} alt="login" />
+                        <img src={imagearray[Math.floor(Math.random() * 4)]} alt="login" />
                         {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" alt="image" /> */}
                     </div>
                     <div className="form">
@@ -64,7 +69,7 @@ function Login() {
                             <label for="name" class="form__label">Username</label>
                         </div>
                         <div class="form__group field">
-                            <input type="text" class="form__field" placeholder="Name" value={credential.password} name="password" id='password' onChange={onChange} required />
+                            <input type="password" class="form__field" placeholder="Name" value={credential.password} name="password" id='password' onChange={onChange} required />
                             <label for="name" class="form__label">Password</label>
                         </div>
                         {/* <div class="form__group field">

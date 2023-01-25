@@ -2,8 +2,12 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import './signup.css'
 import login_image from '../../../images/zorin_login.png'
+import img1 from '../../../images/image1.png'
+import img2 from '../../../images/image2.png'
+import img3 from '../../../images/image3.gif'
 function Signup() {
     const navigate = useNavigate()
+    const imagearray = [img1 , img2 , img3 ,img1];
     const onChange = (e) => {
         setcredential({ ...credential, [e.target.name]: e.target.value })
     }
@@ -50,7 +54,7 @@ function Signup() {
                         <h1 className='text-center'>CodersBook</h1>
                     </div>
                     <div className="image">
-                        <img src={login_image} alt="login" />
+                        <img src={imagearray[Math.floor(Math.random() * 4)]} alt="login" />
                         {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" alt="image" /> */}
                     </div>
                     <div className="form">

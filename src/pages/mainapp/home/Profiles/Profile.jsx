@@ -3,9 +3,10 @@ import NoPosts from '../../../../components/noposts/NoPosts';
 import Post from '../feed/Posts/Post';
 import './profile.css'
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
+import Loading from '../../../../components/noposts/Loading';
 // import Tempimage from '../../../../images/tempimage.png'
 function Profile(props) {
-    
+    const [loading , setloading] = useState(false);
     const context_page = useContext(togglepagecontext);
     const {profileid , changepage} = context_page
     const [myPosts, setmyPosts] = useState();
@@ -14,6 +15,7 @@ function Profile(props) {
 
     const mydetails = JSON.parse(localStorage.getItem('sclmdia_73sub67_details'));
     const followaccount = async()=>{
+        
         let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/follow/${profileid}`, {
             method: "PUT",
             headers: {
@@ -32,6 +34,7 @@ function Profile(props) {
     useEffect(() => {
         // console.log(id)
         const fetch_my_data = async () => {
+            setloading(true)
             const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${mydetails?._id}`, {
                 method: "GET",
                 headers: {
@@ -39,7 +42,7 @@ function Profile(props) {
                 }
             }
             )
-
+            setloading(false)
             const mydata = await mydata_raw.json();
             // setmyPosts(mydata.posts)
             setmyInfo(mydata.user)
@@ -66,7 +69,7 @@ function Profile(props) {
 
     return (
 
-
+        loading === false?
 
         <div className="mainbox">
             <div className="innermainbox">
@@ -239,7 +242,7 @@ function Profile(props) {
             </div> */}
 
         </div>
-
+    : <Loading/>
 
 
     )

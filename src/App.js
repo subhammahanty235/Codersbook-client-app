@@ -12,6 +12,7 @@ import {
   
   // Link
 } from "react-router-dom";
+import Loading from './components/noposts/Loading';
 
 
 function App() {

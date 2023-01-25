@@ -102,7 +102,7 @@ function Post(props) {
         fetch_data()
         setnumLikes(post.likes.length);
     }, [])
-    const style = { color: "orangered", fontSize: "1.5em", "margin": "0px 3px" }
+    const style = { color: "#38ef7d", fontSize: "1.5em", "margin": "0px 3px" }
     const style2 = { color: "grey", fontSize: "1.5em", "margin": "0px 3px" }
     // const btn = () => [
     //     console.log(numlikes)

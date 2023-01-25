@@ -18,7 +18,7 @@
     width: 90%;
     margin: 10px 10px;
     border-radius: 20px;
-    background-color:#7fe3a2;
+    background-color:#38ef7d;
     font-weight: 400;
 }
 .buttonnotactive-profileshow{
@@ -72,7 +72,8 @@
 }
 .otherbuttons button:hover{
     
-    background-color:#7fe3a2;
+    /* background-color:#7fe3a2; */
+    background-color: #38ef7d;
     font-weight: 400;
     padding: 8px 0px;
     padding-top: 8px;
@@ -81,7 +82,7 @@
 }
 .otherbuttons button:active{
     
-    background-color:#7fe3a2;
+    background-color:#38ef7d;
     font-weight: 400;
     padding: 5px 1px;
     padding-top: 5px;
@@ -93,7 +94,7 @@
 }
 
 .active{
-    background-color: #7fe3a2 !important;
+    background-color:#38ef7d !important;
 }
 .mbfollow{
     max-height: 70vh !important;
