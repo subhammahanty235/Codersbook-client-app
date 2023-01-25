@@ -17,7 +17,8 @@ function Navbar(props) {
 
         <div className="navb">
             
-            <div className="logo"><img src={Logo} alt="logo" /></div>
+            {/* <div className="logo"><img src={Logo} alt="logo" /></div> */}
+            <h4 className='logo'><span>{"</Coders> "}</span></h4>
             <input type="text" name="" id="" placeholder='hello'/>
             <img onClick={showhidesidenav}  src="https://avatars.githubusercontent.com/u/99578301?v=4" alt="" className="dp" />
         </div>
