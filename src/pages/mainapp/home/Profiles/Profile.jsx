@@ -42,10 +42,10 @@ function Profile(props) {
                 }
             }
             )
-            setloading(false)
             const mydata = await mydata_raw.json();
             // setmyPosts(mydata.posts)
             setmyInfo(mydata.user)
+            setloading(false)
         }
         const fetch_data = async () => {
             const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${profileid}`, {

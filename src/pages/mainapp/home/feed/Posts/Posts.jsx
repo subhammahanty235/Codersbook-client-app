@@ -20,11 +20,11 @@ function Posts(props) {
                 }
             }
             )
-            setloading(false)
-
+            
             const mydata = await mydata_raw.json();
             // console.log(mydata.posts)
             setmyPosts(mydata)
+            setloading(false)
             
 
         }
