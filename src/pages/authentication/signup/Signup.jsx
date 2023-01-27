@@ -53,7 +53,7 @@ function Signup() {
                 <div className="logores">
                         <h1 className='text-center'>CodersBook</h1>
                     </div>
-                    <div className="image">
+                    <div className="image763">
                         <img src={imagearray[Math.floor(Math.random() * 4)]} alt="login" />
                         {/* <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg" alt="image" /> */}
                     </div>
@@ -81,12 +81,12 @@ function Signup() {
                         {/* <p className="text-center">
                             Aleady A user , Click on the Already User Button to login 
                         </p> */}
-                        {/* <div className="buttonbox">
+                        {/* <div className="buttonbox">c
                             <button className="btn-login1">
                                 Sign Up
                             </button>
                             <button className="btn-login2">
-                               Already an User!
+                               Already an User!f
                             </button>
 
                         </div> */}

@@ -1,24 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Pacifico&family=Quicksand&family=Source+Sans+Pro:wght@200&display=swap');
+
 .main {
-    /* background-color: rgb(36, 100, 157); */
+   
     width: 100vw;
     height: 100vh;
     background-color: #001220;
-    /* position: absolute; */
+   
     display: flex;
-    /* flex-direction: column; */
+   
     align-items: center;
     justify-content: center;
 }
 
 .innermain {
-    /* background-color: rgb(76, 142, 77); */
+    
     width: 85%;
     height: 80%;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
-    /* position: absolute; */
+    
 }
 .buttonbox{
 
@@ -26,20 +28,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* border: 2px solid black; */
+    
     padding: 0;
 
     margin: 0;
     margin-left: 30px;
 }
-.image {
+.image763 {
     flex: 1;
     width: 50%;
     height: 100%;
-    /* border-right: 2px solid #1ba94c; */
+   
     
 }
-
+.image763 img{
+    width: 100%;
+    height: 100%;
+    border-bottom-left-radius: 50px;
+    border-top-left-radius: 50px;
+}
+.logores h1{
+    overflow: hidden;
+    font-family: 'Pacifico', cursive;
+}
 .image img {
     width: 100%;
     height: 100%;
@@ -49,7 +60,7 @@
 
 .form {
     flex: 1;
-    /* border-left: 2px solid #1ba94c; */
+    
     width: 50%;
     height: 100%;
     display: flex;
@@ -59,7 +70,7 @@
     border-right: 3px solid #fff;
     border-radius: 50px;
     overflow: hidden;
-    /* border-radius: 50px; */
+    
 
 }
 .login__header{
@@ -79,17 +90,17 @@ hr{
     border: 2px solid #1ba94c;
 }
 
-/* login button */
+
 .btn-login1{
     background-color: transparent;
     border-width: 3px;
-    /* border-image: linear-gradient(to right, #11998e, #38ef7d); */
+   
     margin-top: 60px;
-    /* border-image-slice: 1; */
+    
     border: 3px solid #1ba94c;
     background-color: transparent;
     color: #1ba94c;
-    /* font-size: 18px; */
+    
     font-weight: 700;
     padding: 10px 0px;
     width: 50%;
@@ -99,9 +110,7 @@ hr{
     border-top-right-radius: 0;
     transition: all 0.5s;
 
-    /* background-image: linear-gradient(to right, #11998e, #38ef7d); */
-
-    /* border-bottom: ; */
+   
 }
 
 .btn-login1:active{
@@ -112,10 +121,9 @@ hr{
 }
 .btn-login2{
     background-color: transparent;
-    border-width: 3px;
-    /* border-image: linear-gradient(to right, #11998e, #38ef7d); */
+    border-width: 3px; 
     margin-top: 70px;
-    /* border-image-slice: 1; */
+    
     border: 3px solid #fff;
     border-left: 3px solid #1ba94c;
     background-color: transparent;
@@ -127,9 +135,7 @@ hr{
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
     transition: all 0.5s;
-    /* background-image: linear-gradient(to right, #11998e, #38ef7d); */
-
-    /* border-bottom: ; */
+    
 }
 
 .btn-login2:active{
@@ -138,7 +144,7 @@ hr{
     border: 2px solid #fff;
     font-weight: 700;
 }
-/* from inputs */
+
 
 .form__group {
     position: relative;
@@ -160,8 +166,7 @@ hr{
     color: #fff;
     padding: 7px 10px;
     background: transparent;
-    transition: all 0.7s;
-    /* text-align: center; */
+    transition: all 0.7s; 
 
 
 
@@ -204,34 +209,14 @@ hr{
     padding-bottom: 6px;
     font-weight: 700;
     border-left: none;border-right: none;
-    /* border-radius: 20px; */
+   
     border-width: 3px;
     border-image: linear-gradient(to right, #1ba94c, #38ef7d);
     border-image-slice: 1;
 }
 
-/* reset input */
 
-
-/* .form__field&:required,
-    .form__field&:invalid {
-        box-shadow: none;
-    } */
-
-
-/* demo */
-/* body {
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    font-size: 1.5rem;
-    background-color: #222222;
-} */
-
-@media screen and (max-width: 1058px) { */
+@media screen and (max-width: 1058px) { 
      .innermain{
         flex-direction: column;
         gap: 20px;
@@ -271,15 +256,18 @@ hr{
         border-top:3px solid  #1ba94c;
         padding-bottom: 20px;
         border-bottom: 3px solid #fff;
-        border-radius: 40px;
+        border-radius: 10px;
+        /* border-radius: 40px; */
     }
     .form__group{
         width: 80%;
     }
-    .image{
+    .image763{
+        display: none;
         border: none;
         border-bottom:3px solid #1ba94c;
         border-radius: 20px;
     }
+    
     
   } 

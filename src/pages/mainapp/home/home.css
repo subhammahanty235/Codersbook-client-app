@@ -1,6 +1,6 @@
 .mainbody{
     min-height: 100vh;
-    /* position: fixed; */
+    
 }
 .homescreen{
     display: flex;
@@ -11,36 +11,33 @@
     width: 100vw;
     overflow: scroll;
     position: fixed;
-    /* scrollbar-color: red; */
-    /* position: fixed; */
+  
 
 }
 .homescreen::-webkit-scrollbar {
     display: none;
   }
 
-/* .nv{
-    position:fixed;
-} */
+
 .oth{
     display: flex;
     position: fixed;
     width: 100vw;
-    /* margin-top: 100px; */
+    
 
 }
 .feedboxarea{
-    /* border: 3px solid green; */
+   
     width: 65vw;
     height: 100vh;
       width: 100%;
-      /* margin-top: calc(100% - 65px); */
+     
       margin-top: 70px;
       border-radius: 20px;
       border-top-left-radius: 0;
       overflow: scroll;
       scroll-behavior: smooth;
-      /* scrollbar-color: red; */
+      
 }
 .feedboxarea::-webkit-scrollbar {
     display: none;
@@ -48,7 +45,7 @@
 
 .sidebararea{
     margin-top: 70px;
-    /* border: 3px solid red; */
+    
     width: 25vw;
 }
 .sidebararea::-webkit-scrollbar {
@@ -57,7 +54,7 @@
 
   @media screen and (max-width:720px) {
     .sidebararea{
-        /* display: none; */
+       
         position:absolute;
         width: 100%;
         background-color:#001220;
@@ -71,14 +68,15 @@
 
     .sidebarshow{
         height: calc(100% - 20%);;
-        /* width: 100%; */
+        
     }
     .sidebarhide{
-        /* display: none; */
+       
         height: 0px;
-        /* width: 0px; */
+        
     }
     .feedboxarea{
         width: 100%;
     }
   }
+  

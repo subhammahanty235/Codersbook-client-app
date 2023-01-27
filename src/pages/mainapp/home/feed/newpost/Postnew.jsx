@@ -40,6 +40,8 @@ function Postnew(props) {
                 body:JSON.stringify(data_to_upload)
             })
             data =await data.json();
+            setText("");
+            setImage("");
             console.log(data)
             // console.log(data_to_upload.image)
             // console.log(JSON.stringify(data_to_upload))

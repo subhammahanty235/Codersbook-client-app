@@ -58,13 +58,12 @@
   }
 .postinput:hover{
     background-color:rgb(246, 240, 240) ;
-    /* border: 2px solid rgb(234, 229, 229) !important;; */
+  
 }
 .textarea{
     border-radius: 20px;
     outline: 0;
-    /* border :0; */
-    /* border: none; */
+    
 }
 .postnewfooter{
     display: flex;
@@ -78,12 +77,12 @@
     background-color: transparent !important;
     color: black;
     transition: all 0.3s;
-    /* border: 3px solid red; */
+    
 }
 .postnewfooter button:first-child:hover{
     background-color: #6E757D !important;
     color: #fff;
-    /* border: 3px solid red; */
+    
 }
 
 @media screen and (max-width:720px) {

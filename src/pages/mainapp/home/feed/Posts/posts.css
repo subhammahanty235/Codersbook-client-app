@@ -1,7 +1,7 @@
 .postbox {
     width: 100%;
     height: auto;
-    /* border: 2px solid orange; */
+    
     margin: 10px 0px;
     margin-bottom: 50px;
     padding: 0px 10px;
@@ -10,12 +10,12 @@
 #exampleModal {
     position: absolute;
     z-index: 10000;
-    ;
+    
 }
 
 .post {
     width: 100%;
-    /* border: 2px solid pink; */
+   
     margin: 10px 0px;
     background-color: #fff;
     border-radius: 20px;
@@ -30,9 +30,7 @@
     padding: 05px 10px;
     align-items: center;
     background-color: #38ef7d;
-    /* background-color: #7fe3a2; */
-
-    /* margin-top: 10px; */
+   
 }
 
 .postbyinfo img {
@@ -46,53 +44,51 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    /* border: 2px solid black; */
+    
 }
 
 .nameanddate p {
-    /* border: 2px solid black; */
-    /* text-align: center; */
+    
+   
     margin-top: auto;
     margin: 0px 10px;
     font-weight: 600;
     font-size: 16px;
-    /* color: #fff; */
-    /* border: 2px solid red; */
+    
 }
 
 .nameanddate small {
-    /* border: 2px solid purple; */
+   
     margin: 0px 10px;
 }
 
 .posthr {
     margin: 0;
     width: 100%;
-    background-color: black;
-    border: 1px solid black !important;
+    background-color: #001220;
+    border: 1px solid #001220 !important;
 }
 
 .postbuttons {
     width: 100%;
-    /* border: 2px solid red; */
+    
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    /* margin-top: 10px; */
+   
 }
 
 .landcmts {
     width: 100%;
-    /* border: 2px solid red; */
+   
     display: flex;
     align-items: center;
 
     justify-content: space-evenly;
-    /* margin-top: 10px; */
+   
 }
 
-.landcmts p {
-    /* border: 2px solid black;; */
+.landcmts p { 
     margin: 0;
     width: 30%;
     font-weight: 500;
@@ -129,7 +125,7 @@
 }
 
 .image {
-    /* border: 3px solid red; */
+  
     width: 100%;
     display: flex;
     align-items: center;
@@ -139,7 +135,7 @@
 .conimage img {
     width: 30vw;
     height: 50%;
-    /* border: 3px solid black; */
+   
     border-radius: 0;
     margin: 20px
 }
@@ -153,9 +149,9 @@
 .commentcont {
     width: 95%;
     height: auto;
-    /* border: 2px solid black; */
+    
     display: flex;
-    /* justify-content: center; */
+    
     align-items: center;
     margin-bottom: 10px;
     justify-content: space-evenly;
@@ -166,9 +162,7 @@
     width: fit-content;
     height: 40px;
     background: none;
-    /* border-radius: 50%; */
-
-    /* background-color: aliceblue; */
+   
     border: 2px solid black;
 }
 .imgdp{
@@ -177,20 +171,18 @@
     background: none;
     border-radius: 50%;
 
-    /* background-color: aliceblue; */
-    /* border: 2px solid black; */
+   
 }
 
 .maincont {
-    /* border: 2px solid red; */
+   
     width: 85%;
     display: flex;
     flex-direction: column;
     background-color: aliceblue;
     border-radius: 20px;
 
-    /* align-items: center; */
-    /* justify-content: space-between; */
+    
 }
 
 .innermaincont {
@@ -207,7 +199,7 @@
     padding: 0px;
     margin: 0;
     font-weight: 600;
-    /* text-align: center; */
+    
 
 }
 
@@ -235,7 +227,7 @@
 }
 .inputandbutton{
     width: 93%;
-    /* border: 1px solid red; */
+   
 }
 .inputandbutton input{
     width: 80%;

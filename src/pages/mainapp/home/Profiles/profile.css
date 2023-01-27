@@ -13,14 +13,14 @@
 }
 
 .innermainbox {
-    /* border: 3px solid red; */
+   
     height: 98%;
     width: 97%;
     border-radius: 20px;
     overflow: scroll;
     overflow-x: hidden;
     scroll-behavior: smooth;
-    /* margin: 10px; */
+    
 }
 
 .name-dp-id {
@@ -29,32 +29,26 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    /* border: 2px solid blue; */
-    /* background-color: aquamarine; */
+    
     background-color: #001220;
-    /* background-image: linear-gradient(to right top, #ffffff, #d7eeff, #87e5fd, #32dbcc, #50c878); */
-    /* background-image: linear-gradient(to left bottom, #ffffff, #cbfbff, #30ffff, #00ffb9, #a8eb12); */
-    /* background-image: linear-gradient(to left bottom, #50c878, #60d269, #75db57, #8de43e, #a8eb12); */
+    
 }
 
 .dp987 {
     height: 80%;
     margin-left: 30px;
-    /* margin-top: 45px;; */
+   
     border-radius: 50%;
     border:2px solid black;
     
     
-    /* border-top: 5px solid #fff; */
-    /* border-left: 5px solid #1ba94c; */
-    /* border-right: 5px solid orange; */
-    /* border-bottom: 5px solid cyan; */
+    
 
 
 }
 
 .name-id {
-    /* margin-top: 50px; */
+   
     margin-left: 20px;
     overflow: hidden;
 }
@@ -65,13 +59,13 @@
     background-color: #393a3b;
     padding: 05px 15px;
     border-radius: 20px;
-    /* opacity: 0.9; */
+    
 
 }
 
 .pid {
     overflow: hidden;
-    /* color:rgb(71, 69, 69); */
+   
     color: #fff;
     margin-left: 10px;
     opacity: 0.7;
@@ -80,14 +74,14 @@
 .follow-unfollow-buttons {
     width: 100%;
     height: 10%;
-    /* border: 3px solid pink; */
+    
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
 .profiledetails {
-    /* border: 2px solid black;; */
+    
     margin-right: 30px;
 }
 
@@ -97,8 +91,7 @@
     margin: 0px 5px;
     border: none;
     background-color: transparent;
-    border: 1px solid grey;
-    /* margin-left: 50px; */
+    border: 1px solid grey; 
     border-radius: 10px;
     background-color: #38ef7d;
     cursor: default;
@@ -113,7 +106,7 @@
     border: 1px solid grey;
     border-radius: 10px;
     background-color: transparent;
-    /* background-color: rgb(99, 229, 185); */
+   
     border: 2px solid black;
     font-weight: 600;
     margin-left: 30px;
@@ -131,12 +124,11 @@
     border: 1px solid grey;
     border-radius: 10px;
     background-color: transparent;
-    /* background-color: rgb(99, 229, 185); */
+    
     border: 2px solid rgb(248, 245, 245);
     color: #fff;
     font-weight: 600;
-    /* margin-left: 30px; */
-    /* font-size: 18px; */
+    
     transition: all 0.5s;
 }
 
@@ -156,7 +148,6 @@
     margin-left: 0px;
     width: 100%;
 
-    /* color: #fff; */
 }
 
 .bio {
@@ -164,7 +155,7 @@
     /* height: 5%; */
     margin: 20px 30px;
     height: auto;
-    /* border: 2px solid violet; */
+   
     overflow: hidden;
 
 }
@@ -179,7 +170,7 @@
     background-color: #001220;
     margin-bottom: 70px;
     border-radius: 20px;
-    /* border: 3px solid green; */
+    
 }
 
 .posts::-webkit-scrollbar {
@@ -231,9 +222,7 @@
     padding: 0px 10px;
 }
 
-.profileform {
-    /* border: 4px solid yellow; */
-}
+
 
 .form2 {
     /* border: 4px solid blue; */
@@ -266,13 +255,12 @@
     width: 90%;
     height: fit-content;
     display: flex;
-    /* flex-direction: column; */
+   
 
 }
 
 .innergroupinp {
-    margin: 5px 10px;
-    /* border: 3px solid pink; */
+    margin: 5px 10px; 
     width: 100%;
     height: fit-content;
     display: flex;
@@ -307,9 +295,9 @@
 
     width: 10%;
     margin-top: 5px;
-    ;
+    
     padding: 6px 5px;
-    /* border-left: none; */
+    
     border-radius: 2px;
     border: 1px solid black;
     background-color: #7fe3a2;
@@ -359,7 +347,7 @@
     }
     .updatebutton{
         width: 17%;
-        /* margin-top: ; */
+       
     }
 }
 
