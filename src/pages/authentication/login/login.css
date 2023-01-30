@@ -195,6 +195,7 @@ hr{
     .innermain{
         flex-direction: column;
         gap: 20px;
+        /* margin-top: 0px; */
     }
     .form{
         width: 100%;
@@ -214,6 +215,7 @@ hr{
         height: 50%;
     }
     .logores{
+        margin-top: 0px;
         display: block;
         background-color: #38ef7d;
         width: 100%;

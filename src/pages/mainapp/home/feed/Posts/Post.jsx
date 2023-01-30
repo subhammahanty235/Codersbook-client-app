@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext ,useRef } from 'react'
 import { GrLike } from 'react-icons/gr'
 import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -7,7 +7,12 @@ import { faThumbsUp } from '@fortawesome/free-solid-svg-icons'
 import { faCommentDots, faShare } from '@fortawesome/free-solid-svg-icons'
 import togglepagecontext from '../../../../../context/pagestoggle/togglepagecontext'
 import Comment from './Comment'
+import sound from '../../../../../audio/likesound.mp3'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function Post(props) {
+    const audioref = useRef(null);
     const content_page = useContext(togglepagecontext)
     const { pmppage, changepage, setprofileid } = content_page
     const { post } = props;
@@ -35,8 +40,11 @@ function Post(props) {
             })
             statusdata = await statusdata.json();
             if (statusdata.flag === true) {
+                audioref.current.play();
                 setliked(true);
+                // toast("Liked")
                 setnumLikes(numlikes + 1)
+
             }
             else {
                 alert(statusdata.message)
@@ -63,7 +71,13 @@ function Post(props) {
 
             resp = await resp.json();
             if (resp.flag === true) {
+
                 console.log("Comment Added")
+                audioref.current.play();
+                setCommentText({comment:""})
+                toast("Comment Posted")
+
+
             }
             else {
                 console.log("Error error occured")
@@ -116,7 +130,7 @@ function Post(props) {
     return (
         <div>
 
-
+            <audio ref={audioref} src={sound}></audio>
             <div className='post'>
                 <div className="postbyinfo">
                     <img onClick={() => ooc(uploadedBy._id)} src={uploadedBy?.profilepic !== null ? uploadedBy?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" />
@@ -165,7 +179,7 @@ function Post(props) {
                 <div className="postbuttons">
                     <button onClick={() => likepost()} ><FontAwesomeIcon icon={faThumbsUp} style={liked === true ? style : style2} />{liked == true ? "Liked" : "like"}</button>
                     <button data-bs-toggle="modal" data-bs-target={`#post${post._id}`}> <FontAwesomeIcon icon={faCommentDots} style={style2} />Comment</button>
-                    <button> <FontAwesomeIcon icon={faShare} style={style2} /> share</button>
+                    <button> <FontAwesomeIcon icon={faShare} style={style2} /> Save</button>
 
                 </div>
                 {/* <!-- Modal --> */}
@@ -181,7 +195,7 @@ function Post(props) {
                         <div class="modal-body cmtmdl">
                             {
                                 post.comments?.map((data) => {
-                                    return <Comment cmt={data} />
+                                    return <Comment key={data.comment} cmt={data} />
                                 })
                             }
                         </div>
@@ -194,8 +208,10 @@ function Post(props) {
 
                         </div>
                     </div>
+                    <ToastContainer/>
                 </div>
             </div>
+            
         </div>
     )
 }

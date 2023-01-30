@@ -31,7 +31,7 @@ function Signup() {
                     console.log(json)
                     if(json.flag === true){
                         localStorage.setItem("sclmdia_73sub67_token", json.token)
-                        localStorage.setItem("sclmdia_73sub67_details", json.result)
+                        localStorage.setItem("sclmdia_73sub67_details", JSON.stringify(json.result))
                         navigate('/')
 
                     }
@@ -59,7 +59,7 @@ function Signup() {
                     </div>
                     <div className="form">
                         <h3 className="login__header">
-                            <span>Joining</span> A new World
+                            <span>Join</span> a new World
                         </h3>
                         <hr />
                         <div class="form__group field">
@@ -70,12 +70,12 @@ function Signup() {
                             <input type="text" class="form__field" placeholder="email id" name="email" id='email' value={credential.email} onChange={onChange} required />
                             <label for="name" class="form__label">email id</label>
                         </div>
-                        <div class="form__group field">
+                        {/* <div class="form__group field">
                             <input type="input" class="form__field" placeholder="Name" required />
                             <label for="name" class="form__label">username</label>
-                        </div>
+                        </div> */}
                         <div class="form__group field">
-                            <input type="text" class="form__field" placeholder="Password"  name="password" id='password' value={credential.password} onChange={onChange} required />
+                            <input type="password" class="form__field" placeholder="Password"  name="password" id='password' value={credential.password} onChange={onChange} required />
                             <label for="name" class="form__label">password</label>
                         </div>
                         {/* <p className="text-center">

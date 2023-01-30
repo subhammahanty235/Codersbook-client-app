@@ -15,8 +15,9 @@
     padding: 7px;
     font-size: 30px;
     background-color:#fff; 
+    /* background-color: aqua; */
     
-    z-index: 1000;
+    z-index: 100;
 }
 .logo{
     border: 1px solid black;
@@ -75,11 +76,13 @@
 .dp{
     border-radius: 50%;
     display: none;
+
    
 }
 @media screen and (max-width:720px) {
     .dp{
         display: block;
+        z-index: 100000;
 
     }
    

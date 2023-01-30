@@ -19,6 +19,10 @@ function Sidenav(props) {
 
   }
 
+  const getfollowings = ()=>{
+
+  }
+
   const logout = ()=>{
 
     localStorage.removeItem('sclmdia_73sub67_details')
@@ -56,19 +60,19 @@ function Sidenav(props) {
 
       </div>
       {/* <!-- Button trigger modal --> */}
-      {/* <button type="button" class="btn btn-primary">
+      {/* <button type="button" className="btn btn-primary">
         Launch demo modal
       </button> */}
 
       {/* <!-- Modal --> */}
-      <div class="modal fade" id="followersmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Followers</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div className="modal fade" id="followersmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Followers</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body mbfollow">
+            <div className="modal-body mbfollow">
               {
                 userdata.user?.followers.length===0?<p className="text-center">You Don't have any followers</p>:
                 userdata.user?.followers.map((user)=>{
@@ -85,14 +89,14 @@ function Sidenav(props) {
       </div>
 
       {/* following */}
-      <div class="modal fade" id="followingmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Followings</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <div className="modal fade" id="followingmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="exampleModalLabel">Followings</h1>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div className="modal-body">
             {
                 userdata.user?.following.length===0?<p className="text-center">Follow People to see them here</p>:
                 userdata.user?.following.map((user)=>{

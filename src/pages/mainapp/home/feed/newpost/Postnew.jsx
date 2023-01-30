@@ -3,10 +3,17 @@ import './postnew.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faImages, faVideoCamera } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useRef } from 'react';
+import postedAudio from '../../../../../audio/postedsound.mp3'
 function Postnew(props) {
+    const audioref = useRef(null)
+
     const { userdata } = props;
     const [text, setText] = useState("")
     const [image, setImage] = useState("")
+
     const upload = async () => {
         let data_to_upload = {};
         if (image !== "" || text !== "") {
@@ -40,6 +47,8 @@ function Postnew(props) {
                 body:JSON.stringify(data_to_upload)
             })
             data =await data.json();
+            audioref.current.play();
+            toast("Posted successfully!")
             setText("");
             setImage("");
             console.log(data)
@@ -68,6 +77,7 @@ function Postnew(props) {
                     <button data-bs-toggle="modal" data-bs-target="#exampleModal"> <FontAwesomeIcon icon={faVideoCamera} style={style2} />Video</button>
                 </div>
             </div>
+            <audio ref={audioref} src={postedAudio}></audio>
             {/* <!-- Button trigger modal --> */}
             {/* <button type="button" className="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
@@ -76,6 +86,7 @@ function Postnew(props) {
             {/* <!-- Modal --> */}
             <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div className="modal-dialog">
+            <ToastContainer />
                     <div className="modal-content">
                         <div className="modal-header">
                             <h1 className="modal-title fs-5" id="exampleModalLabel">New Post</h1>
@@ -99,7 +110,11 @@ function Postnew(props) {
                     </div>
                 </div>
             </div>
+           
+
+            
         </div>
+
     )
 }
 
