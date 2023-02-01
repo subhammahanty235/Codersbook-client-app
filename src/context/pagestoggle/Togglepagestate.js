@@ -13,6 +13,10 @@ const Togglepagestate = (props) => {
         console.log(pmppage)
     }
 
+    const addNotification = (data)=>{
+        
+    }
+
 
 
     return (

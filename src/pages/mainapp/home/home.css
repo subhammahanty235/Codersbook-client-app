@@ -10,7 +10,9 @@
     height: 100vh;
     width: 100vw;
     overflow: scroll;
-    position: fixed;
+    position: sticky;
+  /* top: 0; */
+
   
 
 }
@@ -22,6 +24,8 @@
 .oth{
     display: flex;
     position: fixed;
+    /* position: sticky; */
+  /* top: 0; */
     width: 100vw;
     
 
