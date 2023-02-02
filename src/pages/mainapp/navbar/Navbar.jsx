@@ -8,8 +8,8 @@ import { faCommentDots, faShare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Navbar(props) {
-    const style = { color: "", fontSize: "1em", "margin": "0px 20px" }
-    const { showhidesidenav } = props
+    const style = { color: "", fontSize: "1em", "margin": "0px 20px" ,"cursor":"pointer" }
+    const { showhidesidenav , togglenotificationbox} = props
     return (
         // <div>
         // <nav>
@@ -27,7 +27,9 @@ function Navbar(props) {
             <h4 className='logo'><span>{"</Coders> "}</span></h4>
             <input type="text" name="" id="" placeholder='hello' />
             <div className="sec">
-                <FontAwesomeIcon style={style} icon={faBell} />
+                <FontAwesomeIcon style={style} icon={faBell} onClick={()=>{
+                    togglenotificationbox()
+                }} />
 
                 <img onClick={showhidesidenav} src="https://avatars.githubusercontent.com/u/99578301?v=4" alt="" className="dp" />
                 

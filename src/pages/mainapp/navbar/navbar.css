@@ -102,27 +102,30 @@
 /* notification menu */
 
 .sub-menu-wrap {
+    /* display: none; */
     position: absolute;
     top: 10%;
-    right: 0px;
-    width: 320px;
-    height: 600px;
+    right: 5px;
+    width: 300px;
+    height: 0px;
     /* max-height: 0px; */
-    overflow: hidden;
+    overflow: scroll;
     transition: all 0.5s;
-
+    /* margin: 0px ; */
     z-index: 109980;
-    background-color: #8819f6;
+    background-color: #424143;
+    /* border: 2px solid black; */
+    border-radius: 20px;
+    scroll-behavior: smooth;
 
 }
 
-.sub-menu {
-    background-color: #8819f6;
-    padding: 20px;
-    margin: 10px;
-    opacity: 0.9;
-
-}
-.open-menu{
+.sub-menu-wrap::-webkit-scrollbar{
     display: none;
+}
+
+
+.open-menu{
+    /* display: block; */
+    height: 600px;
 }

@@ -10,10 +10,35 @@ import UpdateProfile from './Profiles/UpdateProfile'
 import togglepagecontext from '../../../context/pagestoggle/togglepagecontext'
 import { useContext } from 'react'
 import NotificationList from './feed/Notification'
+import Notificationsec from './notificationsection/Notificationsec'
+import io from "socket.io-client";
+
 
 function Home() {
   const content_page = useContext(togglepagecontext)
   const { pmppage, changepage, setprofileid } = content_page
+
+  // to operate the notification box
+  const [menuopen, setmenuOpen] = useState(false);
+  const togglenotificationbox = () => {
+    setmenuOpen(!menuopen)
+  }
+
+
+  // 
+
+  // for the notification
+  const [notifications, setNotifications] = useState([]);
+  const socket = io("http://localhost:5000");
+  const config = {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json',
+      'authtoken': localStorage.getItem('sclmdia_73sub67_token')
+    }
+  };
+
+
   const navigate = useNavigate()
 
   const [show, setshow] = useState(false);
@@ -27,18 +52,8 @@ function Home() {
   })
 
   const [userdata, setuserdata] = useState({})
-  //   const [pmppage , setpmppage] = useState(1);
-  //   // const [profileid , setprofile]= useState(JSON.parse(localStorage.getItem('sclmdia_73sub67_details'))._id)
-  //   const [profileid , setprofile]= useState("")
-  //   const setprofileid = (id)=>{
-  //     setprofile(id)
-  //     console.log(profileid)
-  //   }
-  //   const pnp_change = (n)=>{         //it will help swiching between all posts and my posts page
-  //     setpmppage(n);
-  //     console.log(pmppage)
 
-  // }
+
   let page = <Feedbox userdata={userdata} />
   // let page = <Feedbox userdata={userdata} pmp={pmppage} pmppage={pnp_change} setprofileid={setprofileid}/>
   if (pmppage == 2) {
@@ -54,6 +69,28 @@ function Home() {
   }
 
 
+  // fetch Notifications
+  useEffect(() => {
+    const fetchNotifications = async () => {
+      let response = await fetch('http://localhost:5000/api/notification/allnotifications', config)
+      //   const response = await axios.get(`` , config);
+      response = await response.json();
+      // console.log(response)
+      setNotifications(response);
+    };
+    fetchNotifications();
+    setTimeout(() => {
+      socket.on("notification-recieve", newNotification => {
+        console.log("New notificatiokn")
+        setNotifications([...notifications, newNotification]);
+      });
+      // console.log('This will run after 3 seconds');
+    }, 3000);
+
+    return () => {
+      socket.disconnect();
+    };
+  }, [notifications]);
 
 
   useEffect(() => {
@@ -85,34 +122,14 @@ function Home() {
       <div className="mainbody">
 
         <div className='homescreen'>
-          <Navbar showhidesidenav={set} />
+          <Navbar showhidesidenav={set} togglenotificationbox={togglenotificationbox} />
           {/* Notification box */}
 
-          
-          <div className={`sub-menu-wrap  open-menu `}>
-                    <div className="sub-menu">
 
-                        hdhewiewiuui
-                        {/* <div className="user-info">
-                            <h5 className="tripname text-center">{tripData.tripName}</h5>
-                            <p className="tripid ">Trip ID : {tripData.tripID}</p>
-                            <p className="tripbudget">Trip Budget : ₹{tripData.budgetTotal}</p>
-                            <p className="totalmem">Total Members : {tripData.users?.length}</p>
-                            <hr />
-                            <p className="username">Name : {mydata.name} </p>
-                            <p className="emailid">{mydata.emailId}</p>
-                            <p className="Totalspent">Total Spent :  ₹{mydata.totalAmountpaid}</p>
-                            <hr />
-                           
-                            {/* <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="customSwitch1" checked/>
-                                    <label class="custom-control-label" for="customSwitch1">Change Theme</label>
-                            </div> */}
-                        {/* <button className="btn btn-outline-primary logoutbutton" onClick={logOut}>Log Out</button> */}
-                        {/* </div>  */}
+          <div className={`sub-menu-wrap ${menuopen === true ? 'open-menu' : ''}`}>
+            <Notificationsec notifications={notifications} />
 
-                    </div>
-                </div>
+          </div>
           <div className="oth" >
 
             <div className="feedboxarea">
