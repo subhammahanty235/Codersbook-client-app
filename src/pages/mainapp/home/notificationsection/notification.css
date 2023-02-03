@@ -1,4 +1,4 @@
-.sub-menu {
+/* .sub-menu {
     background-color: #fbfafc;
     padding: 20px;
     margin: 10px;
@@ -6,4 +6,41 @@
     border: 1px solid black;
     border-radius: 20px;
 
+} */
+
+.notificationbox-main{
+    background-color: #fbfafc;
+    padding: 10px;
+    margin: 10px;
+    opacity: 0.9;
+    max-height: 70px;
+    border: 1px solid black;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
 }
+.notificationbox-main img{
+    /* position: absolute?; */
+    height: 40px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    
+}
+.notificationbox-main p{
+    /* border: 1px solid black; */
+    margin-top: auto;
+    margin-left: 5px;
+    font-weight: 400;
+
+}
+.notificationbox-main p span{
+    color:grey;
+    font-size: xx-small;
+    margin-left: 10px;
+
+}
+

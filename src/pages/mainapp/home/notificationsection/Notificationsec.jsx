@@ -2,6 +2,7 @@ import React, {useEffect} from 'react'
 import './notification.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import NotificationBox from './NotificationBox';
 
 function Notificationsec({notifications}) {
     useEffect(() => {
@@ -17,14 +18,17 @@ function Notificationsec({notifications}) {
         {
             notifications.length !== 0?
             notifications.map((notification)=>{
+                // alert(notification)
                 console.log(notification);
-           return <div className="sub-menu">
-                {notification.notificationtext}
+           return <NotificationBox data={notification}/>
+                
             
-            </div>
+        
 
-            })
+            }) 
             : "No Notifications"
+
+        // <NotificationBox/>
         }
            
            
