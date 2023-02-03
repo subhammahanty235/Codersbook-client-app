@@ -1,9 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './notification.css'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
 function Notificationsec({notifications}) {
+    useEffect(() => {
+        AOS.init();
+      }, [])
 
     return (
-        <div>
+        <div >
 
             {/* <h5 className="notificationbox-header">
             Notifications

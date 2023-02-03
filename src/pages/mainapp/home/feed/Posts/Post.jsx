@@ -14,9 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 function Post(props) {
     const audioref = useRef(null);
     const content_page = useContext(togglepagecontext)
-    const { pmppage, changepage, setprofileid } = content_page
+    const { pmppage, changepage, setprofileid , addNotification } = content_page
     const { post } = props;
     let myid = JSON.parse(localStorage.getItem('sclmdia_73sub67_details'))._id;
+    let myname = JSON.parse(localStorage.getItem('sclmdia_73sub67_details')).name;
     const [numlikes, setnumLikes] = useState(0)
     const [liked, setliked] = useState(post.likes.includes(myid) ? true : false)
     const [uploadedBy, setUpoadedBy] = useState({})
@@ -41,6 +42,18 @@ function Post(props) {
             statusdata = await statusdata.json();
             if (statusdata.flag === true) {
                 audioref.current.play();
+                let data = {
+                    type:`${myname} liked your post`,
+                    receiver:uploadedBy._id,
+                    post:post._id,
+                }
+                try {
+                    addNotification(data);
+                    
+                } catch (error) {
+                    console.log(error)
+                    console.log("Can't send notification , error occured")
+                }
                 setliked(true);
                 // toast("Liked")
                 setnumLikes(numlikes + 1)
@@ -193,11 +206,11 @@ function Post(props) {
 
                         </div>
                         <div class="modal-body cmtmdl">
-                            {
+                            {/* {
                                 post.comments?.map((data) => {
                                     return <Comment key={data.comment} cmt={data} />
                                 })
-                            }
+                            } */}
                         </div>
                         <div class="modal-footer">
 
