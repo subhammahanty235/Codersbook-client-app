@@ -190,13 +190,21 @@
         display:none;
     }
     .follow-editprofile-onp{
-        display: block;
+        /* display: block; */
+        display: flex;
     }
     .follow-unfollow-buttons{
         display: flex;
         align-items: center;
         justify-content: center;
     }
+    .shareprofile{
+        display: none;
+    }
+    .shareprofileonp{
+        display: block !important;
+    }
+    
 
 }
 
@@ -349,6 +357,17 @@
         width: 17%;
        
     }
+    /* .profiledetails{
+        display: none;
+
+    }
+    .showprofiledetails{
+        display: flex;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        
+    } */
 }
 
 

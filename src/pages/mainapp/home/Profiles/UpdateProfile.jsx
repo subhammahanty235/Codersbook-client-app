@@ -81,6 +81,7 @@ function UpdateProfile() {
             })
             data = await data.json();
             if(data.flag === true){
+                localStorage.setItem('sclmdia_73sub67_details' , data)
                 alert("Updated Successfully");
             }
             else{

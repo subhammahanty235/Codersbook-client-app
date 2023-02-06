@@ -6,6 +6,9 @@ import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext
 import Loading from '../../../../components/noposts/Loading';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShare } from '@fortawesome/free-solid-svg-icons';
+import copy from "copy-to-clipboard"; 
 
 
 function Profile(props) {
@@ -17,7 +20,7 @@ function Profile(props) {
     const [myinfo, setmyInfo] = useState();
     const [followerslist, setfollowerslist] = useState([])
     const [followinglist, setfollowinglist] = useState([])
-    const [tfb , settfb] = useState(myinfo?.following.includes(userinfo?._id)?true:false)
+    const [tfb, settfb] = useState(myinfo?.following.includes(userinfo?._id) ? true : false)
 
     const mydetails = JSON.parse(localStorage.getItem('sclmdia_73sub67_details'));
     const followaccount = async () => {
@@ -44,6 +47,13 @@ function Profile(props) {
             alert("Error")
         }
     }
+
+    // to copy the profile url
+    const copyToClipboard = () => {
+        copy(`http://localhost:3000/profile?id=${profileid}`);
+        // alert(`Copied`);
+     }
+
     const unfollowaccount = async () => {
         // console.log(followinglist)
         // console.log(followerslist)
@@ -102,16 +112,16 @@ function Profile(props) {
             const mydata = await mydata_raw.json();
             setmyPosts(mydata.posts)
             setuserInfo(mydata.user)
-            settfb(myinfo?.following.includes(profileid)?true:false)
+            settfb(myinfo?.following.includes(profileid) ? true : false)
             setloading(false)
         }
 
 
-        
+
         fetch_my_data()
         fetch_data();
         console.log(tfb)
-        
+
 
 
 
@@ -138,11 +148,12 @@ function Profile(props) {
                                         <button data-bs-toggle="modal" data-bs-target="#editprofilemodal" onClick={() => { changepage(5) }}>Edit Profile</button>
                                         : (userinfo?.following.includes(mydetails?._id)) ?
                                             <button>Follow Back</button> : (myinfo?.following.includes(userinfo?._id) ?
-                                            <button onClick={()=>{console.log(followerslist);console.log(followinglist)}}>UnFollow</button>  :
+                                                <button onClick={() => { console.log(followerslist); console.log(followinglist) }}>UnFollow</button> :
                                                 <button onClick={followaccount}>Follow</button>)
                                     // mydetails?._id ===userinfo?._id ? <button data-bs-toggle="modal" data-bs-target="#editprofilemodal" onClick={()=>{changepage(5)}}>Edit Profile</button> : (userinfo?.following.includes(mydetails?._id)) ? <button onClick={followaccount}>Follow Back</button> :(myinfo?.following.includes(userinfo?._id) ?  <button onClick={()=>{console.log(followerslist);console.log(followinglist)}}>UnFollow</button> : <button onClick={followaccount}>Follow</button> )
                                 }
                                 {/* <button>Follow</button> */}
+                                <button onClick={copyToClipboard} className="shareprofileonp d-none">Share <FontAwesomeIcon icon={faShare} style={{ color: "white" }} /></button>
 
                             </div>
                         </div>
@@ -155,18 +166,21 @@ function Profile(props) {
                                     <button data-bs-toggle="modal" data-bs-target="#editprofilemodal" onClick={() => { changepage(5) }}>Edit Profile</button>
                                     : (userinfo?.following.includes(mydetails?._id)) ?
                                         <button onClick={followaccount}>Follow Back</button> : (myinfo?.following.includes(userinfo?._id) ?
-                                        <button onClick={unfollowaccount}>UnFollow</button>  :
+                                            <button onClick={unfollowaccount}>UnFollow</button> :
                                             <button onClick={followaccount}>Follow</button>)
                                 // mydetails?._id ===userinfo?._id ? <button data-bs-toggle="modal" data-bs-target="#editprofilemodal" onClick={()=>{changepage(5)}}>Edit Profile</button> : (userinfo?.following.includes(mydetails?._id)) ? <button onClick={followaccount}>Follow Back</button> :(myinfo?.following.includes(userinfo?._id) ?  <button onClick={()=>{console.log(followerslist);console.log(followinglist)}}>UnFollow</button> : <button onClick={followaccount}>Follow</button> )
                             }
                             {/* <button>Follow</button> */}
 
                         </div>
+
                         <div className='profiledetails'>
                             <button>Followers <span>{userinfo?.followers?.length}</span></button>
                             <button>Followings <span>{userinfo?.following?.length}</span></button>
-                            <button onClick={()=>{console.log(tfb)}}>Posts <span>{userinfo?.totalposts}</span></button>
+                            <button onClick={() => { console.log(tfb) }}>Posts <span>{userinfo?.totalposts}</span></button>
+                            <button onClick={copyToClipboard} className="shareprofile">Share <FontAwesomeIcon icon={faShare} style={{ color: "white" }} /></button>
                         </div>
+                        
 
                     </div>
                     <hr className="posthr" />
