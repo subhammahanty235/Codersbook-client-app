@@ -79,17 +79,17 @@ function Home() {
       setNotifications(response);
     };
     fetchNotifications();
-    setTimeout(() => {
-      socket.on("notification-recieve", newNotification => {
-        console.log("New notificatiokn")
-        setNotifications([...notifications, newNotification]);
-      });
-      // console.log('This will run after 3 seconds');
-    }, 3000);
+    // setTimeout(() => {
+    //   socket.on("notification-recieve", newNotification => {
+    //     console.log("New notificatiokn")
+    //     setNotifications([...notifications, newNotification]);
+    //   });
+    //   // console.log('This will run after 3 seconds');
+    // }, 3000);
 
-    return () => {
-      socket.disconnect();
-    };
+    // return () => {
+    //   socket.disconnect();
+    // };
   }, [notifications]);
 
 

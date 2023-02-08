@@ -3,6 +3,8 @@ import './profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function UpdateProfile() {
     const context_page = useContext(togglepagecontext);
@@ -81,8 +83,10 @@ function UpdateProfile() {
             })
             data = await data.json();
             if(data.flag === true){
-                localStorage.setItem('sclmdia_73sub67_details' , data)
-                alert("Updated Successfully");
+
+                localStorage.setItem('sclmdia_73sub67_details' , data.data)
+                toast('Updated Profile')
+                // alert("Updated Successfully");
             }
             else{
                 alert("Try Again")
@@ -210,7 +214,7 @@ function UpdateProfile() {
                     </div>
                 </div>
             </div>
-
+            <ToastContainer/>
         </div>
     )
 }

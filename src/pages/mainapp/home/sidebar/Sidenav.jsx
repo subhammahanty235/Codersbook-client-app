@@ -4,8 +4,9 @@ import User_image from '../../../../images/user_image.png'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import UserCard from '../userCard/UserCard';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
+import { Link } from 'react-router-dom'
 function Sidenav(props) {
   const content_page = useContext(togglepagecontext)
   const { pmppage, changepage, setprofileid } = content_page
@@ -13,6 +14,7 @@ function Sidenav(props) {
   const { userdata , setsidenav} = props;
   // const [pmp , setpmp] = useState(pmppage)
   const profileopenbtn = ()=>{
+    navigate('/')
     setprofileid(userdata.user._id)
     changepage(2)
     setsidenav(false)
@@ -44,7 +46,7 @@ function Sidenav(props) {
         </div>
 
         <div className="otherbuttons">
-          <button className={(pmppage == 1) ? 'active' : ''}  onClick={() => { changepage(1);setsidenav(false) }}>Home</button>
+          <button className={(pmppage == 1) ? 'active' : ''}  onClick={() => { navigate('/'); changepage(1);setsidenav(false) }}>Home</button>
           <button data-bs-toggle="modal" data-bs-target="#followersmodal">Followers</button>
           <button data-bs-toggle="modal" data-bs-target="#followingmodal">Followings</button>
           <button onClick={() => { changepage(3);setsidenav(false) }} className={pmppage == 3 ? 'active' : ''}>My Posts</button>

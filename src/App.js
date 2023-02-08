@@ -13,6 +13,7 @@ import {
   // Link
 } from "react-router-dom";
 import Loading from './components/noposts/Loading';
+import ProfileDem from './pages/mainapp/home/Profiles/ProfileDem';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
             <Route path='/' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
+            <Route path='/profile' element={<ProfileDem />} />
             
           </Routes>
         </BrowserRouter>
