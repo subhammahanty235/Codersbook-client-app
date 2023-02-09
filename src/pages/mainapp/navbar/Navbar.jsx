@@ -31,7 +31,7 @@ function Navbar(props) {
                     togglenotificationbox()
                 }} />
 
-                <img onClick={showhidesidenav} src="https://avatars.githubusercontent.com/u/99578301?v=4" alt="" className="dp" />
+                <img onClick={showhidesidenav} src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" alt="dp" className="dp" />
                 
             </div>
             
