@@ -128,4 +128,5 @@
 .open-menu{
     /* display: block; */
     height: 600px;
+    /* max-height: 600px; */
 }
