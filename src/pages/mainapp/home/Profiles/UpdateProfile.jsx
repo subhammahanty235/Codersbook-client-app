@@ -1,7 +1,7 @@
 import React, { useRef, useState, useContext, useEffect } from 'react'
 import './profile.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faChampagneGlasses } from '@fortawesome/free-solid-svg-icons'
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +14,7 @@ function UpdateProfile() {
     const [staticdata , setstaticdata] = useState();
     const [newdata, setnewdata] = useState(new FormData());
     const [usernamechecked, setusernamechecked] = useState(true);
-    
+    const [loading , setloading] = useState(false)
     const fileInput = useRef(null);
 
     // Add new data to state
@@ -72,6 +72,8 @@ function UpdateProfile() {
                         console.log(err)
                     })
             }
+            // console.log()
+            console.log( JSON.stringify(Object.fromEntries(newdata.entries())).profilepic)
             let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/updateprofile`, {
                 method: "PUT",
                 headers: {
@@ -83,8 +85,9 @@ function UpdateProfile() {
             })
             data = await data.json();
             if(data.flag === true){
-
-                localStorage.setItem('sclmdia_73sub67_details' , data.data)
+                console.log(data)
+                console.log(data.data)
+                // localStorage.setItem('sclmdia_73sub67_details' , data.data)
                 toast('Updated Profile')
                 // alert("Updated Successfully");
             }

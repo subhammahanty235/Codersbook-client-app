@@ -10,11 +10,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function Navbar(props) {
     const style = { color: "", fontSize: "1em", "margin": "0px 20px" ,"cursor":"pointer" }
     const { showhidesidenav , togglenotificationbox} = props
+    let dp = ""
+    if( localStorage.getItem('sclmdia_73sub67_details') != null){
+         dp = localStorage.getItem('sclmdia_73sub67_details').profilepic
+
+    }
     return (
         // <div>
         // <nav>
         //     <div className="logo">
-        //         Xorin
+        //         Xorinfmt.Println("the value of opinter is ", ptr)fmt.Println("the value of opinter is ", ptr)
         //     </div>
         //     <input type="text" name="" id="" placeholder='hello'/>
         //     {/* <button>jsjs</button> */}
@@ -31,7 +36,7 @@ function Navbar(props) {
                     togglenotificationbox()
                 }} />
 
-                <img onClick={showhidesidenav} src="https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" alt="dp" className="dp" />
+                <img onClick={showhidesidenav} src={dp} alt="dp" className="dp" />
                 
             </div>
             
