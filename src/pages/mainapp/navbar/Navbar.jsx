@@ -10,7 +10,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function Navbar(props) {
     const style = { color: "", fontSize: "1em", "margin": "0px 20px" ,"cursor":"pointer" }
     const { showhidesidenav , togglenotificationbox} = props
-    let dp = ""
+    let dp = "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" || localStorage.getItem('sclmdia_73sub67_details').profilepic;
     if( localStorage.getItem('sclmdia_73sub67_details') != null){
          dp = localStorage.getItem('sclmdia_73sub67_details').profilepic
 

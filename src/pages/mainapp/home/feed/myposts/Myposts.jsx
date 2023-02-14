@@ -15,7 +15,7 @@ function Myposts() {
     useEffect(() => {
         const fetch_data = async () => {
             setloading(true)
-            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${mydetails._id}`, {
+            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${mydetails._id}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'

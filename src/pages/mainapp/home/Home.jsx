@@ -9,9 +9,9 @@ import Profile from './Profiles/Profile'
 import UpdateProfile from './Profiles/UpdateProfile'
 import togglepagecontext from '../../../context/pagestoggle/togglepagecontext'
 import { useContext } from 'react'
-import NotificationList from './feed/Notification'
-import Notificationsec from './notificationsection/Notificationsec'
+
 import io from "socket.io-client";
+import Notificationsec from './notificationsection/Notificationsec'
 
 
 function Home() {
@@ -29,7 +29,7 @@ function Home() {
 
   // for the notification
   const [notifications, setNotifications] = useState([]);
-  const socket = io("http://localhost:5000");
+  // const socket = io("http://localhost:5000");
   const config = {
     method: "GET",
     headers: {
@@ -71,26 +71,33 @@ function Home() {
 
   // fetch Notifications
   useEffect(() => {
+
     const fetchNotifications = async () => {
-      let response = await fetch('http://localhost:5000/api/notification/allnotifications', config)
+      let response = await fetch(`${process.env.REACT_APP_API_KEY}notification/allnotifications`, config)
       //   const response = await axios.get(`` , config);
       response = await response.json();
       // console.log(response)
-      setNotifications(response);
-    };
-    fetchNotifications();
-    // setTimeout(() => {
-    //   socket.on("notification-recieve", newNotification => {
-    //     console.log("New notificatiokn")
-    //     setNotifications([...notifications, newNotification]);
-    //   });
-    //   // console.log('This will run after 3 seconds');
-    // }, 3000);
 
-    // return () => {
-    //   socket.disconnect();
-    // };
-  }, [notifications]);
+      setNotifications(response)
+
+      // setTimeout(() => {
+      //   socket.on("notification-recieve", newNotification => {
+      //     console.log("New notificatiokn")
+      //     setNotifications([...notifications, newNotification]);
+      //   });
+      //   // console.log('This will run after 3 seconds');
+      // }, 3000);
+
+      // return () => {
+      //   socket.disconnect();
+      // };
+    };
+    // if (menuopen === true) {
+      fetchNotifications();
+    // }
+
+
+  }, []);
 
 
   useEffect(() => {
@@ -102,7 +109,7 @@ function Home() {
         const mydetails = JSON.parse(localStorage.getItem('sclmdia_73sub67_details'));
 
         // console.log(mydetails)
-        const data = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${mydetails._id}`, {
+        const data = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${mydetails._id}`, {
           method: "GET",
           headers: {
             'Content-Type': 'application/json'

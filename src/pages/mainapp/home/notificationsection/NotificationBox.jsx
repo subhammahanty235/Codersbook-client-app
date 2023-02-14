@@ -34,7 +34,7 @@ function NotificationBox(props) {
 
     useEffect(() => {
         const getsenderdata = async () => {
-            const userdata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${data.from}`, {
+            const userdata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${data.from}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ function NotificationBox(props) {
     }, [])
     return (
         <div className='notificationbox-main'>
-            <img src={senderdata?.profilepic === null ? senderdata?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="" />
+            <img src={senderdata?.profilepic !== null ? senderdata?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="" />
 
             <p>{data?.notificationtext}<span>{formatDate(data?.created)}</span></p>
         </div>

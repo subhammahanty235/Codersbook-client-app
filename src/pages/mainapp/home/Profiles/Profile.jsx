@@ -50,7 +50,7 @@ function Profile(props) {
 
     // to copy the profile url
     const copyToClipboard = () => {
-        copy(`http://localhost:3000/profile?id=${profileid}`);
+        copy(`https://codersbook.netlify.app/profile?username=${userinfo.username}`);
         toast("Copied to clipboard")
         // alert(`Copied`);
     }
@@ -84,7 +84,7 @@ function Profile(props) {
         const fetch_my_data = async () => {
             setloading(true)
 
-            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${mydetails?._id}`, {
+            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${mydetails?._id}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'
@@ -102,7 +102,7 @@ function Profile(props) {
         }
         const fetch_data = async () => {
             setloading(true)
-            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${profileid}`, {
+            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${profileid}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'

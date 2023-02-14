@@ -12,7 +12,7 @@ function UserCard(props) {
         // console.log(id)
 
         const fetch_data = async () => {
-            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${id}`, {
+            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${id}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'

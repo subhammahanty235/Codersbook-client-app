@@ -1,6 +1,6 @@
 
 import './App.css';
-import React , {useState} from 'react';
+import React , {useEffect, useState} from 'react';
 import Login from './pages/authentication/login/Login';
 import Signup from './pages/authentication/signup/Signup';
 import Home from './pages/mainapp/home/Home';
@@ -14,9 +14,14 @@ import {
 } from "react-router-dom";
 import Loading from './components/noposts/Loading';
 import ProfileDem from './pages/mainapp/home/Profiles/ProfileDem';
-
+import { io } from 'socket.io-client';
 
 function App() {
+
+  // useEffect(()=>{
+  //   const socket = io()
+  //   console.log(socket)
+  // })
   // require('dotenv').config()
  
   // const navigate = useNavigate()

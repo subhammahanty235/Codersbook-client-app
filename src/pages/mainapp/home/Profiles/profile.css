@@ -11,7 +11,18 @@
 .innermainbox::-webkit-scrollbar {
     display: none;
 }
-
+.spinner{
+    color: #fff;
+    animation: rotatecircle 3s linear infinite;
+}
+@keyframes rotatecircle {
+    from { 
+        transform: rotate(0deg); 
+    } to { 
+        transform: rotate(360deg); 
+    }
+   
+  }
 .innermainbox {
    
     height: 98%;

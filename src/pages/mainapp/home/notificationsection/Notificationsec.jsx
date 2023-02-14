@@ -26,7 +26,7 @@ function Notificationsec({notifications}) {
         
 
             }) 
-            : "No Notifications"
+            : <p className="text-center"> No Notifications</p>
 
         // <NotificationBox/>
         }

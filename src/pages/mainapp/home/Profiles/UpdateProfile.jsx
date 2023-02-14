@@ -1,11 +1,12 @@
 import React, { useRef, useState, useContext, useEffect } from 'react'
 import './profile.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft, faChampagneGlasses } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowLeft , faSpinner} from '@fortawesome/free-solid-svg-icons'
+
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function UpdateProfile() {
     const context_page = useContext(togglepagecontext);
     const { changepage } = context_page
@@ -15,6 +16,9 @@ function UpdateProfile() {
     const [newdata, setnewdata] = useState(new FormData());
     const [usernamechecked, setusernamechecked] = useState(true);
     const [loading , setloading] = useState(false)
+    const [chksym , setchksym] = useState(false)
+    const [buttonloading , setbuttonloading] = useState(false)
+    const [upbuttonloading , setupbuttonloading] = useState(false)
     const fileInput = useRef(null);
 
     // Add new data to state
@@ -24,7 +28,7 @@ function UpdateProfile() {
     useEffect(() => {
 
         const fetch_data = async () => {
-            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${JSON.parse(localStorage.getItem('sclmdia_73sub67_details'))._id}`, {
+            const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${JSON.parse(localStorage.getItem('sclmdia_73sub67_details'))._id}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'
@@ -36,7 +40,10 @@ function UpdateProfile() {
 
             setmyInfo(mydata.user)
             setstaticdata(mydata.user)
-            setImageSrc(mydata.user.profilepic)
+            if(mydata.user.profilepic !== null || mydata.user.profilepic !== ""){
+                setImageSrc(mydata.user.profilepic)
+
+            }
         }
         fetch_data();
 
@@ -51,9 +58,10 @@ function UpdateProfile() {
 
     // function to call the updateprofile api
     const updateprofile = async () => {
-        console.log(newdata)
+        // console.log(newdata)
 
         if (usernamechecked === true) {
+            setupbuttonloading(true)
             if (imageSrc !== myinfo.profilepic) {
                 const data = new FormData();
                 data.append("file", imageSrc);
@@ -89,11 +97,13 @@ function UpdateProfile() {
                 console.log(data.data)
                 // localStorage.setItem('sclmdia_73sub67_details' , data.data)
                 toast('Updated Profile')
+                setupbuttonloading(false)
                 // alert("Updated Successfully");
             }
             else{
                 alert("Try Again")
             }
+
         }
         else {
             alert("Please Check the Availibilty of the username")
@@ -109,23 +119,32 @@ function UpdateProfile() {
     const checkusername = async () => {
         // const userdata = username;
         const username = myinfo.username
-        // if(staticdata.user)
-        if(staticdata.username === username){
-            setusernamechecked(true);
+        if(username.indexOf("@") !== -1){
+            setchksym(true)
         }
         else{
-            let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/checkusername/${username}`, {
-                method: "GET",
-            })
-    
-            data = await data.json();
-            if (data.flag === false) {
-                setusernamechecked(false)
+            if(staticdata.username === username){
+                setusernamechecked(true);
             }
-            else {
-                setusernamechecked(true)
+            else{
+                setbuttonloading(true)
+                let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/checkusername/${username}`, {
+                    method: "GET",
+                })
+        
+                data = await data.json();
+                setbuttonloading(false)
+                if (data.flag === false) {
+                    setusernamechecked(false)
+                }
+                else {
+                    setusernamechecked(true)
+                }
+
             }
         }
+        // if(staticdata.user)
+       
         
     }
     const handleClick = () => {
@@ -164,7 +183,7 @@ function UpdateProfile() {
                     <div className="navbar110">
                         {/* <button>back</button> */}
                         <FontAwesomeIcon icon={faArrowLeft} onClick={()=>{changepage(2)}}/>
-                        <button className='updatebutton' onClick={updateprofile}>Update</button>
+                        <button className='updatebutton' onClick={updateprofile}>{upbuttonloading === true ? <FontAwesomeIcon className='spinner' icon={faSpinner}/>  : 'Update'}</button>
                     </div>
                     <div className="profileform">
                         <div className="imagesection">
@@ -186,12 +205,13 @@ function UpdateProfile() {
                                     <label htmlFor="">Username</label>
                                     <div className="usernameinpandbutton">
                                         <input type="text" name="username" id="" value={myinfo?.username} onChange={onChange} />
-                                        <button onClick={checkusername}  > <div className={usernamechecked === false ? "indicator-red" : "indicator-green"}></div> Check</button>
+                                        <button onClick={checkusername}  > <div className={usernamechecked === false ? "indicator-red" : "indicator-green"}></div> {buttonloading === true ? <FontAwesomeIcon className='spinner' icon={faSpinner}/> : 'Check'}</button>
                                     </div>
-                                    <label htmlFor="">{usernamechecked === false ? "Not Available, Please use another" : "Available, Good To Go"}</label>
-
+                                    <label htmlFor="">{usernamechecked === false ? "Please Click on Check to check the availability" : "Available, Good To Go"}</label>
+                                    
 
                                 </div>
+                                {/* <p className={chksym===true?" ":"d-none"}></p> */}
                             </div>
                             <div className="groupinp">
                                 <div className="innergroupinp">

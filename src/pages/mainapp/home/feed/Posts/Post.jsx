@@ -111,7 +111,7 @@ function Post(props) {
         // console.log(myid)
 
         const fetch_data = async () => {
-            const userdata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata/${post.uploadedBy}`, {
+            const userdata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${post.uploadedBy}`, {
                 method: "GET",
                 headers: {
                     'Content-Type': 'application/json'
@@ -206,11 +206,11 @@ function Post(props) {
 
                         </div>
                         <div class="modal-body cmtmdl">
-                            {/* {
+                            {
                                 post.comments?.map((data) => {
                                     return <Comment key={data.comment} cmt={data} />
                                 })
-                            } */}
+                            }
                         </div>
                         <div class="modal-footer">
 
