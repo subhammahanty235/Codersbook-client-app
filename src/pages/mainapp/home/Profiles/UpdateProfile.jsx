@@ -1,24 +1,27 @@
 import React, { useRef, useState, useContext, useEffect } from 'react'
 import './profile.css'
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowLeft , faSpinner} from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft, faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 import togglepagecontext from '../../../../context/pagestoggle/togglepagecontext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Loading from '../../../../components/noposts/Loading';
+
+
 function UpdateProfile() {
     const context_page = useContext(togglepagecontext);
     const { changepage } = context_page
     const [myinfo, setmyInfo] = useState();
     const [imageSrc, setImageSrc] = useState('https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png');
-    const [staticdata , setstaticdata] = useState();
+    const [staticdata, setstaticdata] = useState();
     const [newdata, setnewdata] = useState(new FormData());
     const [usernamechecked, setusernamechecked] = useState(true);
-    const [loading , setloading] = useState(false)
-    const [chksym , setchksym] = useState(false)
-    const [buttonloading , setbuttonloading] = useState(false)
-    const [upbuttonloading , setupbuttonloading] = useState(false)
+    const [loading, setloading] = useState(false)
+    const [chksym, setchksym] = useState(false)
+    const [buttonloading, setbuttonloading] = useState(false)
+    const [upbuttonloading, setupbuttonloading] = useState(false)
     const fileInput = useRef(null);
 
     // Add new data to state
@@ -28,6 +31,7 @@ function UpdateProfile() {
     useEffect(() => {
 
         const fetch_data = async () => {
+            setloading(true)
             const mydata_raw = await fetch(`${process.env.REACT_APP_API_KEY}auth/getdata?id=${JSON.parse(localStorage.getItem('sclmdia_73sub67_details'))._id}`, {
                 method: "GET",
                 headers: {
@@ -40,10 +44,11 @@ function UpdateProfile() {
 
             setmyInfo(mydata.user)
             setstaticdata(mydata.user)
-            if(mydata.user.profilepic !== null || mydata.user.profilepic !== ""){
+            if (mydata.user.profilepic !== null || mydata.user.profilepic !== "") {
                 setImageSrc(mydata.user.profilepic)
-
+                
             }
+            setloading(false)
         }
         fetch_data();
 
@@ -81,7 +86,7 @@ function UpdateProfile() {
                     })
             }
             // console.log()
-            console.log( JSON.stringify(Object.fromEntries(newdata.entries())).profilepic)
+            console.log(JSON.stringify(Object.fromEntries(newdata.entries())).profilepic)
             let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/updateprofile`, {
                 method: "PUT",
                 headers: {
@@ -92,7 +97,7 @@ function UpdateProfile() {
 
             })
             data = await data.json();
-            if(data.flag === true){
+            if (data.flag === true) {
                 console.log(data)
                 console.log(data.data)
                 // localStorage.setItem('sclmdia_73sub67_details' , data.data)
@@ -100,7 +105,7 @@ function UpdateProfile() {
                 setupbuttonloading(false)
                 // alert("Updated Successfully");
             }
-            else{
+            else {
                 alert("Try Again")
             }
 
@@ -119,19 +124,19 @@ function UpdateProfile() {
     const checkusername = async () => {
         // const userdata = username;
         const username = myinfo.username
-        if(username.indexOf("@") !== -1){
+        if (username.indexOf("@") !== -1) {
             setchksym(true)
         }
-        else{
-            if(staticdata.username === username){
+        else {
+            if (staticdata.username === username) {
                 setusernamechecked(true);
             }
-            else{
+            else {
                 setbuttonloading(true)
                 let data = await fetch(`${process.env.REACT_APP_API_KEY}auth/checkusername/${username}`, {
                     method: "GET",
                 })
-        
+
                 data = await data.json();
                 setbuttonloading(false)
                 if (data.flag === false) {
@@ -144,8 +149,8 @@ function UpdateProfile() {
             }
         }
         // if(staticdata.user)
-       
-        
+
+
     }
     const handleClick = () => {
         fileInput.current.click();
@@ -162,15 +167,15 @@ function UpdateProfile() {
         };
         reader.readAsDataURL(file);
     };
-   
+
     const onChange = (e) => {
         setmyInfo({ ...myinfo, [e.target.name]: e.target.value })
-        if(e.target.name === 'bio'){
+        if (e.target.name === 'bio') {
             e.target.value.replace(/\n/g, '\\n');
         }
         newdata.append(e.target.name, e.target.value);
 
-        if(e.target.name === 'username'){
+        if (e.target.name === 'username') {
             setusernamechecked(false);
         }
 
@@ -178,66 +183,68 @@ function UpdateProfile() {
     }
     return (
         <div>
-            <div className="container">
-                <div className="mainscreen">
-                    <div className="navbar110">
-                        {/* <button>back</button> */}
-                        <FontAwesomeIcon icon={faArrowLeft} onClick={()=>{changepage(2)}}/>
-                        <button className='updatebutton' onClick={updateprofile}>{upbuttonloading === true ? <FontAwesomeIcon className='spinner' icon={faSpinner}/>  : 'Update'}</button>
-                    </div>
-                    <div className="profileform">
-                        <div className="imagesection">
-                            <img src={imageSrc} onClick={handleClick} alt="" className="dp987" />
-                            <input type="file" ref={fileInput} style={{ display: 'none' }} onChange={handleChange} />
-                            <label>Click on the image to change</label>
-
+            {loading === false ?
+                <div className="container">
+                    <div className="mainscreen">
+                        <div className="navbar110">
+                            {/* <button>back</button> */}
+                            <FontAwesomeIcon icon={faArrowLeft} onClick={() => { changepage(2) }} />
+                            <button className='updatebutton' onClick={updateprofile}>{upbuttonloading === true ? <FontAwesomeIcon className='spinner' icon={faSpinner} /> : 'Update'}</button>
                         </div>
-                        <div className="form2">
-                            <div className="groupinp">
-                                <div className="innergroupinp">
-                                    <label htmlFor="">Full Name</label>
-                                    <input type="text" id="" name="name" value={myinfo?.name} onChange={onChange} />
+                        <div className="profileform">
+                            <div className="imagesection">
+                                <img src={imageSrc} onClick={handleClick} alt="" className="dp987" />
+                                <input type="file" ref={fileInput} style={{ display: 'none' }} onChange={handleChange} />
+                                <label>Click on the image to change</label>
 
-                                </div>
                             </div>
-                            <div className="groupinp">
-                                <div className="innergroupinp">
-                                    <label htmlFor="">Username</label>
-                                    <div className="usernameinpandbutton">
-                                        <input type="text" name="username" id="" value={myinfo?.username} onChange={onChange} />
-                                        <button onClick={checkusername}  > <div className={usernamechecked === false ? "indicator-red" : "indicator-green"}></div> {buttonloading === true ? <FontAwesomeIcon className='spinner' icon={faSpinner}/> : 'Check'}</button>
+                            <div className="form2">
+                                <div className="groupinp">
+                                    <div className="innergroupinp">
+                                        <label htmlFor="">Full Name</label>
+                                        <input type="text" id="" name="name" value={myinfo?.name} onChange={onChange} />
+
                                     </div>
-                                    <label htmlFor="">{usernamechecked === false ? "Please Click on Check to check the availability" : "Available, Good To Go"}</label>
-                                    
-
                                 </div>
-                                {/* <p className={chksym===true?" ":"d-none"}></p> */}
-                            </div>
-                            <div className="groupinp">
-                                <div className="innergroupinp">
-                                    <label htmlFor="">Bio</label>
-                                    {/* <input type="text" name="" id="" /> */}
-                                    <textarea name="bio" id="" rows="5" value={myinfo?.bio} onChange={onChange}></textarea>
+                                <div className="groupinp">
+                                    <div className="innergroupinp">
+                                        <label htmlFor="">Username</label>
+                                        <div className="usernameinpandbutton">
+                                            <input type="text" name="username" id="" value={myinfo?.username} onChange={onChange} />
+                                            <button onClick={checkusername}  > <div className={usernamechecked === false ? "indicator-red" : "indicator-green"}></div> {buttonloading === true ? <FontAwesomeIcon className='spinner' icon={faSpinner} /> : 'Check'}</button>
+                                        </div>
+                                        <label htmlFor="">{usernamechecked === false ? "Please Click on Check to check the availability" : "Available, Good To Go"}</label>
 
+
+                                    </div>
+                                    {/* <p className={chksym===true?" ":"d-none"}></p> */}
                                 </div>
-                            </div>
-                            <div className="groupinp">
-                                <div className="innergroupinp">
-                                    <label htmlFor="">email id</label>
-                                    <input type="text" name="email" id="" value={myinfo?.email} onChange={onChange} />
+                                <div className="groupinp">
+                                    <div className="innergroupinp">
+                                        <label htmlFor="">Bio</label>
+                                        {/* <input type="text" name="" id="" /> */}
+                                        <textarea name="bio" id="" rows="5" value={myinfo?.bio} onChange={onChange}></textarea>
 
+                                    </div>
                                 </div>
-                                <div className="innergroupinp">
-                                    <label htmlFor="">mobile</label>
-                                    <input type="text" name="" id="" />
+                                <div className="groupinp">
+                                    <div className="innergroupinp">
+                                        <label htmlFor="">email id</label>
+                                        <input type="text" name="email" id="" value={myinfo?.email} onChange={onChange} />
 
+                                    </div>
+                                    <div className="innergroupinp">
+                                        <label htmlFor="">mobile</label>
+                                        <input type="text" name="" id="" />
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <ToastContainer/>
+                : <Loading />}
+            <ToastContainer />
         </div>
     )
 }
