@@ -14,7 +14,7 @@ function UpdateProfile() {
     const context_page = useContext(togglepagecontext);
     const { changepage } = context_page
     const [myinfo, setmyInfo] = useState();
-    const [imageSrc, setImageSrc] = useState('https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png');
+    const [imageSrc, setImageSrc] = useState('https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png');
     const [staticdata, setstaticdata] = useState();
     const [newdata, setnewdata] = useState(new FormData());
     const [usernamechecked, setusernamechecked] = useState(true);

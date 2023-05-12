@@ -21,7 +21,7 @@ function Comment(props) {
   return (
     <div>
         <div className="commentcont">
-        <img src={userData.user?.profilepic !== null ? userData.user?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" className='imgdp' />
+        <img src={userData.user?.profilepic !== null ? userData.user?.profilepic : "https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png"} alt="image" className='imgdp' />
             <div className="maincont">
                 <div className="innermaincont">
 

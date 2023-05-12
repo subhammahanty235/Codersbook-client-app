@@ -1,20 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import { TiThMenuOutline } from 'react-icons/ti'
 import './navbar.css'
 import Logo from '../../../images/logo.png'
-
+import { useNavigate } from 'react-router-dom'
 import { faThumbsUp, faBell } from '@fortawesome/free-solid-svg-icons'
 import { faCommentDots, faShare } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 function Navbar(props) {
+    const navigate = useNavigate()
     const style = { color: "", fontSize: "1em", "margin": "0px 20px" ,"cursor":"pointer" }
     const { showhidesidenav , togglenotificationbox} = props
-    let dp = "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png" || localStorage.getItem('sclmdia_73sub67_details').profilepic;
-    if( localStorage.getItem('sclmdia_73sub67_details') != null){
-         dp = localStorage.getItem('sclmdia_73sub67_details').profilepic
+    let dp =localStorage.getItem('sclmdia_73sub67_details').profilepic || "https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png"  ;
 
-    }
+    useEffect(()=>{
+        if( localStorage.getItem('sclmdia_73sub67_details') != null){
+             dp = localStorage.getItem('sclmdia_73sub67_details').profilepic
+    
+        }else{
+            navigate('/login');
+        }
+        
+    },[])
     return (
         // <div>
         // <nav>

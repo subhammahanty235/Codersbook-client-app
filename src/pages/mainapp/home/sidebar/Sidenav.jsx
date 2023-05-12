@@ -39,7 +39,7 @@ function Sidenav(props) {
       <div className="container">
         <div className="profile">
           <div className="nameanddp">
-            <img src={userdata.user?.profilepic !== null ? userdata.user?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" />
+            <img src={userdata.user?.profilepic !== null ? userdata.user?.profilepic : "https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png"} alt="image" />
             <p>{userdata.user?.name}</p>
           </div>
           <button onClick={() => { profileopenbtn() }} className={(pmppage == 2 || pmppage == 5)? 'buttonactive-profileshow' : 'buttonnotactive-profileshow'}>Show Profile</button>

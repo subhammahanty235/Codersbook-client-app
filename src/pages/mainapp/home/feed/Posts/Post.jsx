@@ -11,7 +11,7 @@ import sound from '../../../../../audio/likesound.mp3'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function Post(props) {
+function  Post(props) {
     const audioref = useRef(null);
     const content_page = useContext(togglepagecontext)
     const { pmppage, changepage, setprofileid , addNotification } = content_page
@@ -84,7 +84,18 @@ function Post(props) {
 
             resp = await resp.json();
             if (resp.flag === true) {
-
+                let data = {
+                    type:`${myname} Commented your post`,
+                    receiver:uploadedBy._id,
+                    post:post._id,
+                }
+                try {
+                    addNotification(data);
+                    
+                } catch (error) {
+                    console.log(error)
+                    console.log("Can't send notification , error occured")
+                }
                 console.log("Comment Added")
                 audioref.current.play();
                 setCommentText({comment:""})
@@ -146,7 +157,7 @@ function Post(props) {
             <audio ref={audioref} src={sound}></audio>
             <div className='post'>
                 <div className="postbyinfo">
-                    <img onClick={() => ooc(uploadedBy._id)} src={uploadedBy?.profilepic !== null ? uploadedBy?.profilepic : "https://w7.pngwing.com/pngs/340/946/png-transparent-avatar-user-computer-icons-software-developer-avatar-child-face-heroes.png"} alt="image" />
+                    <img onClick={() => ooc(uploadedBy._id)} src={uploadedBy?.profilepic !== null ? uploadedBy?.profilepic : "https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png"} alt="image" />
                     <div className="nameanddate">
                         <p>{uploadedBy?.name}</p>
                         <small className="timeline">
