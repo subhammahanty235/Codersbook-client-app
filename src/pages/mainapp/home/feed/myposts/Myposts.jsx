@@ -39,31 +39,31 @@ function Myposts() {
 
 
     return (
-       
-            
-                loading === false ?
-                <div>
-                    <div className="postbox">
-                        {/* <h2 className="text-center text-primary">My Posts</h2> */}
-                        {/* <button onClick={()=>{console.log(myPosts)}}>Click</button> */}
-                        {
-                            myPosts?.length === 0 ? <NoPosts /> :
-                                myPosts?.map((post) => {
-                                    // console.log(post)
-                                    return <Post post={post} key={post._id} />
-                                })
-                        }
+
+
+        loading === false ?
+            <div>
+                <div className="postbox">
+                    {/* <h2 className="text-center text-primary">My Posts</h2> */}
+                    {/* <button onClick={()=>{console.log(myPosts)}}>Click</button> */}
+                    {
+                        myPosts?.length === 0 ? <NoPosts /> :
+                            myPosts?.map((post) => {
+                                // console.log(post)
+                                return <Post post={post} key={post._id} />
+                            })
+                    }
 
 
 
 
-                    </div>
-                    </div >
-                : <Loading/>
-            
-            
+                </div>
+            </div >
+            : <Loading />
 
-        
+
+
+
 
     )
 }
