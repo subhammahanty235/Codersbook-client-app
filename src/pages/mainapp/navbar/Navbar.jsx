@@ -11,11 +11,11 @@ function Navbar(props) {
     const navigate = useNavigate()
     const style = { color: "", fontSize: "1em", "margin": "0px 20px" ,"cursor":"pointer" }
     const { showhidesidenav , togglenotificationbox} = props
-    let dp = !localStorage.getItem('sclmdia_73sub67_details').profilepic?"https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png":localStorage.getItem('sclmdia_73sub67_details').profilepic  ;
+    let dp = !localStorage.getItem('sclmdia_73sub67_details')?"https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png":localStorage.getItem('sclmdia_73sub67_details')?.profilepic  ;
 
     useEffect(()=>{
         if( !localStorage.getItem('sclmdia_73sub67_details') ){
-             dp = localStorage.getItem('sclmdia_73sub67_details').profilepic
+             dp = localStorage.getItem('sclmdia_73sub67_details')?.profilepic
     
         }else{
             navigate('/login');
