@@ -35,7 +35,7 @@ function Postnew(props) {
                     })
             }
             if (text !== "") {
-                data_to_upload.content = text
+                data_to_upload.content = text.replace(/\n/g, '\\n');
             }
 
             let data = await fetch(`${process.env.REACT_APP_API_KEY}post/addpost`, {

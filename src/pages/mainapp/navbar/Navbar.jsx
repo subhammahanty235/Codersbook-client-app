@@ -14,7 +14,7 @@ function Navbar(props) {
     let dp = !localStorage.getItem('sclmdia_73sub67_details')?"https://res.cloudinary.com/dbnqqpobe/image/upload/v1683888315/removal.ai__5c5595dd-bcec-47ef-9403-c6e5317ac359_uiregk.png":localStorage.getItem('sclmdia_73sub67_details')?.profilepic  ;
 
     useEffect(()=>{
-        if( !localStorage.getItem('sclmdia_73sub67_details') ){
+        if( localStorage.getItem('sclmdia_73sub67_details')!=null ||localStorage.getItem('sclmdia_73sub67_details')!=undefined  ){
              dp = localStorage.getItem('sclmdia_73sub67_details')?.profilepic
     
         }else{

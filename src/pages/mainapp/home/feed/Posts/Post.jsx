@@ -172,8 +172,9 @@ function  Post(props) {
                     {
                         <div className="container">
                             {
-                                post?.content ? <p>{post.content}</p> : ""
+                                post?.content ? <p dangerouslySetInnerHTML={{ __html: post?.content?.replace(/\n/g, "<br/>") }} /> : ""
                             }
+                            
 
                         </div>
 

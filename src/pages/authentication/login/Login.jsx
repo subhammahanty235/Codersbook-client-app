@@ -17,7 +17,7 @@ function Login() {
     const login_func = async () => {
         // console.log(process.env.REACT_APP_API_KEY7)
         if (credential.email !== "" && credential.password !== "") {
-            console.log(credential.email)
+            // console.log(credential.email)
             try {
                 const responce = await fetch(`${process.env.REACT_APP_API_KEY}auth/login`, {
                     method: "POST",
@@ -28,7 +28,7 @@ function Login() {
                 });
 
                 const json = await responce.json();
-                console.log(json.result)
+                // console.log(json.result)
                 if(json.flag === true){
                     localStorage.setItem("sclmdia_73sub67_token", json.token)
                     localStorage.setItem("sclmdia_73sub67_details", JSON.stringify(json.result))

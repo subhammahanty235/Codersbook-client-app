@@ -47,6 +47,7 @@ function Home() {
   }
   useEffect(() => {
     if (!localStorage.getItem('sclmdia_73sub67_token')) {
+      console.log("LOgging Out")
       navigate('/login')
     }
   })
